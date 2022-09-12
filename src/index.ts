@@ -27,14 +27,14 @@ process.on("SIGINT", function onSigint() {
   shutdown();
 });
 
-// quit properly on docker stop
-process.on("SIGTERM", function onSigterm() {
-  console.info(
-    "Got SIGTERM (docker container stop). Graceful shutdown ",
-    new Date().toISOString()
-  );
-  shutdown();
-});
+// // quit properly on docker stop
+// process.on("SIGTERM", function onSigterm() {
+//   console.info(
+//     "Got SIGTERM (docker container stop). Graceful shutdown ",
+//     new Date().toISOString()
+//   );
+//   shutdown();
+// });
 
 // shut down server
 function shutdown() {

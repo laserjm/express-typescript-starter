@@ -39,6 +39,34 @@
         }
       }
     },
+    "/health2": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Returns a health message",
+        "description": "Use to cheak availability of service",
+        "operationId": "Your_second_operationId_here",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/health-auth": {
       "get": {
         "tags": [
@@ -46,7 +74,7 @@
         ],
         "summary": "Returns a authorized health message",
         "description": "Use to cheak availability and authorization of service",
-        "operationId": "Your_second_operationId_here",
+        "operationId": "Your_third_operationId_here",
         "parameters": [],
         "responses": {
           "200": {
