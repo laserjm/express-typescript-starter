@@ -1,0 +1,113 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Your API here",
+    "description": "Your api description here",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3001/api/"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Returns a health message",
+        "description": "Use to cheak availability of service",
+        "operationId": "Your_operationId_here",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health-auth": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Returns a authorized health message",
+        "description": "Use to cheak availability and authorization of service",
+        "operationId": "Your_second_operationId_here",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Message": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Your Message"
+          }
+        },
+        "xml": {
+          "name": "Message"
+        }
+      },
+      "SampleMessage": {
+        "type": "object",
+        "properties": {
+          "Message": {
+            "xml": {
+              "name": "message"
+            },
+            "$ref": "#/components/schemas/Message"
+          }
+        },
+        "xml": {
+          "name": "SampleMessage"
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
